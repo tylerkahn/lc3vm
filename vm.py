@@ -108,8 +108,7 @@ def loadProgram(binString):
 	bytes = map(ord, binString)
 
 	origAddress = apply(makeShort, bytes[0:2]) # first two bytes in .obj file contain 
-											   # starting address of program in 
-											   # little endian format
+						   # starting address of program
 	
 	for i, ir in enumerate(shortStream(bytes[2:])):
 		mem[origAddress + i] = ir & 0xFFFF
